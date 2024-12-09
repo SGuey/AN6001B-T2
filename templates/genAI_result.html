@@ -6,8 +6,12 @@
 
 <body>   
     <div class="container">
-        <h2>Reply:</h2>
-        <h4>{{r}}</h4>
+        <h4>Reply:</h4>
+        <p>{{r}}</p>
+		<form action="/genAI_result" method="post">
+            <input type="text" name="q" placeholder="Please type below:">
+            <input type="submit" value="Enter">
+        </form>
         <form action="/main" method="post">
             <input type="submit" value="Main">
         </form>
@@ -15,5 +19,9 @@
             <input type="submit" value="End">
         </form>
     </div> 
-	 
+	<script>
+        
+        // Format r into the paragraph with automatic line breaks
+        document.getElementById("response").innerHTML = r.replace(/\*/g, "<br>");
+    </script>
 </body>
